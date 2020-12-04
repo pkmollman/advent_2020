@@ -8,10 +8,6 @@ with open('input.txt', 'r') as f:
     for line in f.readlines():
         passports_text += line
 
-unsep_passports = passports_text.split('\n')
-passports = []
-passport_group = []
-
 def byr(value):
     if len(value) == 4 and int(value) >= 1920 and int(value) <= 2002:
         return True
@@ -25,9 +21,9 @@ def eyr(value):
         return True
     return False
 def hgt(value):
-    if 'cm' in value[-2:] and int(value[:-2]) >= 150 and int(value[:-2]) <= 193:
+    if 'cm' in value[-2:] and 150 <= int(value[:-2]) <= 193:
         return True
-    if 'in' in value[-2:] and int(value[:-2]) >= 59 and int(value[:-2]) <= 76:
+    if 'in' in value[-2:] and 59 <= int(value[:-2]) <= 76:
         return True
     return False
 def hcl(value):
@@ -47,6 +43,10 @@ required_values = {
     'ecl': ecl,
     'pid': pid,
 }
+
+unsep_passports = passports_text.split('\n')
+passports = []
+passport_group = []
 
 for line in unsep_passports:
     if line == '':
