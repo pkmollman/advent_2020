@@ -30,7 +30,7 @@ for slope in slopes:
     if big_number == 0:
         big_number = trees
     else:
-        big_number = big_number * trees
+        big_number *= trees
 
 print(trees)
 print(big_number)
